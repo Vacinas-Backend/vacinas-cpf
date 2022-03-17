@@ -1,15 +1,13 @@
-package com.br.fiap.vacinas;
+package com.cpf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
+import com.cpf.service.CpfService;
 @SpringBootApplication
-@EnableSwagger2
-public class VacinasApplication {
+public class CpfApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(VacinasApplication.class, args);
+		SpringApplication.run(CpfApplication.class, args);
 		System.out.println("Ok!");
 	}
 }
