@@ -1,1 +1,1 @@
-web: java -jar build/libs/br-fiap-vacinas.jar
+web: java -jar build/libs/com-cpf.jar
