@@ -25,7 +25,7 @@ public class CpfController {
     
     @CrossOrigin
     @PostMapping(path = "/validar")
-    public void validate(@RequestBody String cpf) {
-        cpfService.validateCPF(cpf);
+    public boolean validate(@RequestBody String cpf) {
+        return cpfService.validateCPF(cpf);
     }
 }

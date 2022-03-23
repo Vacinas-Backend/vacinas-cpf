@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 public class CpfService {
 
     public Boolean validateCPF(String CPF) {
+
           // considera-se erro CPF's formados por uma sequencia de numeros iguais
           if (CPF.equals("00000000000") ||
           CPF.equals("11111111111") ||
@@ -16,7 +17,7 @@ public class CpfService {
           CPF.equals("88888888888") || CPF.equals("99999999999") ||
           (CPF.length() != 11))
           return(false);
-  
+
           char dig10, dig11;
           int sm = 0;
           int i; 
@@ -39,13 +40,13 @@ public class CpfService {
               sm = sm + (num * peso);
               peso = peso - 1;
           }
-  
           r = 11 - (sm % 11);
           if ((r == 10) || (r == 11))
               dig11 = '0';
           else dig11 = (char)(r + 48);
-  
-          if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10))) return(true);
+          if ((dig10 == CPF.charAt(9)) && (dig11 == CPF.charAt(10))) {
+            return(true);
+          }
           return false;
       }
     }

@@ -4,7 +4,7 @@
     <persistence-units>
       <persistence-unit name="Default">
         <packages>
-          <package value="com.br.fiap.vacinas" />
+          <package value="com.cpf" />
         </packages>
       </persistence-unit>
     </persistence-units>

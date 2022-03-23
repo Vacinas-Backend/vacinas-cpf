@@ -1,7 +1,7 @@
 info:
   app:
-    name: Vacinas
-    description: Vacinas
+    name: CPF
+    description: CPF
 
 spring:
   main:
