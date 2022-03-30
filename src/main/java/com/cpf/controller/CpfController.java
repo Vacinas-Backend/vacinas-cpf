@@ -1,6 +1,11 @@
 package com.cpf.controller;
 
+import netscape.javascript.JSObject;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,8 +29,20 @@ public class CpfController {
     
     
     @CrossOrigin
-    @PostMapping(path = "/validar")
-    public boolean validate(@RequestBody String cpf) {
-        return cpfService.validateCPF(cpf);
+    @PostMapping(path = "/validar", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> validate(@RequestBody String cpf) {
+        JSONObject obj = new JSONObject(cpf);
+        String cpfString = obj.getString("cpf");
+        Boolean isValid = cpfService.validateCPF(cpfString);
+        System.out.println("RESULT" + isValid);
+        JSONObject responseJson = new JSONObject();
+        responseJson.put("isValid", isValid);
+//        return cpfService.validateCPF(cpfString);
+        return new ResponseEntity<String>(
+                responseJson.toString(),
+                isValid ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+
+
+
     }
 }
