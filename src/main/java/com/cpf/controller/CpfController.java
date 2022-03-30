@@ -34,10 +34,8 @@ public class CpfController {
         JSONObject obj = new JSONObject(cpf);
         String cpfString = obj.getString("cpf");
         Boolean isValid = cpfService.validateCPF(cpfString);
-        System.out.println("RESULT" + isValid);
         JSONObject responseJson = new JSONObject();
         responseJson.put("isValid", isValid);
-//        return cpfService.validateCPF(cpfString);
         return new ResponseEntity<String>(
                 responseJson.toString(),
                 isValid ? HttpStatus.OK : HttpStatus.BAD_REQUEST);

@@ -7,11 +7,7 @@ import org.springframework.stereotype.Service;
 public class CpfService {
 
     public Boolean validateCPF(String CPF) {
-        System.out.println("aqui" + CPF);
-
-        System.out.println("BEFORE " + CPF);
         CPF = CPF.replaceAll("[^\\d]", "");
-        System.out.println("AFTER " + CPF);
 
           // considera-se erro CPF's formados por uma sequencia de numeros iguais
           if (CPF.equals("00000000000") ||
